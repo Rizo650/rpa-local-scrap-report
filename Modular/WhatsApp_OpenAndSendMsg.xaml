@@ -1,0 +1,459 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="WhatsApp_OpenAndSendMsg" this:WhatsApp_OpenAndSendMsg.in_NeedtoCopas="False" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Message" Type="InArgument(x:String)" />
+    <x:Property Name="in_Destination" Type="InArgument(x:String)" />
+    <x:Property Name="in_NeedtoCopas" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_ApplicationPath" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1226,5031</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>WhatsApp_OpenAndSendMsg_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="68">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="102">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="WhatsApp_OpenAndSendMsg" sap:VirtualizedContainerService.HintSize="1236,4966" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="isAlreadyLogin" />
+      <Variable x:TypeArguments="x:String" Name="mergedLogMessages" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: (6) WhatsApp" sap:VirtualizedContainerService.HintSize="1174,4855" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1140,4638" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check App State 'To use'" sap:VirtualizedContainerService.HintSize="1078,52" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Timeout="30" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,309" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="338,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[isAlreadyLogin]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;WhatsApp web not login. Please login using the phone&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,309" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="338,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[isAlreadyLogin]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;WhatsApp Web already login&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://web.whatsapp.com/" DesignTimeRectangle="270, 237, 465, 37" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'To use'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' isleaf='1' parentid='app' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' parentid='app' tag='DIV' class='landing-title _3-XoE' aaname='To use WhatsApp on your computer:' check:innerText='To use WhatsApp on your computer:' /&gt;" Guid="4ec822c4-385c-4e5d-b740-45ca710e1806" ImageBase64="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" InformativeScreenshot="326354795823912d7383b48e0d58a479.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='WhatsApp' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <If Condition="[isAlreadyLogin]" DisplayName="If - WA Already Login" sap:VirtualizedContainerService.HintSize="1078,4431" sap2010:WorkflowViewState.IdRef="If_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1044,4048" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1002,52" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,329" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'SPAN'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Text="[in_Destination]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://web.whatsapp.com/" DesignTimeRectangle="85, 242, 245, 20" DesignTimeScaleFactor="1" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl aria-role='textbox' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='textbox' tag='DIV' type='' class='_13NKt copyable-text selectable-text' aaname='' /&gt;" Guid="edd03185-d3d8-4bae-a680-d65f5e350981" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPkAAAAYCAYAAAA4V1u3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOxSURBVHhe7Zg9a1VBEIb9tbZ2plKxMAhqGkmhpFCxUAQtJDZio10aJSB+EBQVES1EhNRHnwvv4b3DnL1CvLk3yxQPObuzOx87M+fczalfvw+Hoij6pZq8KDqnmrwoOqeavCg6p5q8KDqnmrwoOmeuyb/9+DlsXt8ZTm9cnHHmwuVh/+3B3IZl82D36bB9+34qK5bLp6/fh/NXt48958VyGZucBG9sbg0v9l6OQpK99+r1OD4O1qnJ8QN/Mtm/cNKa5qj+HvW8iuUwNjmJJcEk2hccN9Xkq6OavE+aX/IIsqmf8iRXMpAeXQHuPnwy28Mzc/FqoHk1OUjWKpxFVwz2Xrt5Z7Zm6vrhvnMG7z9+SXVGW6zVS1ENQpzIrty4NduntYovs92KN9pkHfP44y/lmD/tm8qn5xIYK4bHz56PvnuM4GelfYtyUKyWuTs5iSFBMbFAMn2esQoXKG7+IqMQXMazxsg158VMYTGvIkK/7EwVjfSo8CH6ib5W0cVm2X9zMD6j131kLX7yHGNgD3bdF+YWfRlb8UYbGrPGn7UPPbKPbeSKxWGtnxG2uJYpBvahXzakk/FUnhnH8yrWg7kmF7FgICaQxPKFzAqYOTWOCkXFCDx7cTjYcLvZfuF2NBfXR30RdJy9tJXGsahoXTc+xIbO5iKteLP4mNd69so//tKA5AQdvs5pnWfmL+umchX9W3RexWpImxxUDCRNzzR+RMXCX5/XlyIrKnRmBZjJWkU5VYBebC1bgmLl6+nxQFa0zHmc0p01SDYXacULbksoZsWPHXS8+/B5fPEy9lhEy6dMJhs64+iT/yLAZjyvYvVMNjl4AU4VDcRCoEj0hveinVrvtIre14Hb8Xn3NeprgR6KVnvZ50Ubx647a5BsLtKKl336MvseIf1cIXbuPZrNoU9f9Mxu6zwzf1mnXPkzMtb5+cfzKdaDsclJmO6boGJQ0kiwv7WdWKiMW19y5pF7QfidfKroNRdlvj76GfVFWC/d0ZYXbZRF29j7302uZz+nCHvP/bUhv7DFuPVyQJ+fEXt0J281efQ16vHzKtaHsclJFAnzn2IxYYxdruTHvRSY3vBetK4r7lHxxEKa2h/l0uNFB1FfhILWT3XwmCXTP8LwQeuYI07pxmbW0DoznZXLJG/FG88J/Cx49pi13uPIkF+g+LIY0C/foy+eZ9bG85KOYrU0f64XRXHyqSYvis6pJi+KzqkmL4rOqSYvis6pJi+KzqkmL4rOqSYviq45HP4AWXCE9+WZfy0AAAAASUVORK5CYII=" InformativeScreenshot="576014e5a679ce09e8522ac464969f4c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(6) WhatsApp' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="32, 239, 24, 24" FriendlyName="'SPAN'" FullSelectorArgument="&lt;webctrl idx='2' parentid='side' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='side' tag='SPAN' class='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEtSURBVEhL7ZOxD8FAFIf9kVY2sRGLSgztQJiErUx0w0RiFIOQiIShg8VgEDEYRGJ+/E4q1Tx3J7mYOnxp0l9737279xLX253+SSw0Tiw0jpZwtfGp0mpTMpMXFJw6ecMx+60KpXAynQtJOmdRud6katOlbNF+i0/nC/vfN6RCVCYWtmu0Pxw/Mm84Elmj3f14r0IqRDWoLCoL55B+yzmkQiyGY+QyMFusxTc4CS7nUApRBZeB4Mhxz1zOIRXi7rKWw2bA9fpC6O/2bM4hFQaNgWc0gySVK4mOjWYypEKAKiHFHM6Wa1pt/WdlAyF7bea3eVQKMWdofSweBpW9R6PTY//lUAoD0PpoEjRI+M6CzehKtYUyfpEaEQJdqTEhgFQ1k0aFOsRC48RCw9zpAZLSYvUk3ni4AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1002,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Send Message to &quot; + in_Destination]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'wa-wordmark-refreshed'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1002,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Text="[in_Destination]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://web.whatsapp.com/" DesignTimeRectangle="143, 155, 320, 22" DesignTimeScaleFactor="1" FriendlyName="'P'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='selectable-text copyable-text x15bjb6t x1n2onr6' aaname='' /&gt;" Guid="9d6f4d7f-0285-496a-aca1-640a8984a839" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUQAAAAaCAYAAADPGSX1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQQSURBVHhe7Z1/dtowDMd3V24Bh9jf2UXSU4RT0Bu0g/W1nn9HUmQ5MEa75ct7nzeIHVmWpW+cwuDb68uLAwCArfDrcnGtBwQRALA53t7esgTyBwQRALA9Xl/dx8dHlsH5AUEEAGwS7dYZgggA2CbKLhGCCADYLHKXCEEEAGyWn36XSB8QRADApnl/f89yqAjicdi53Y4wTKz9YUyDH39wR60N/ENMbvB5NExaGwCfD/0IDhHEk3vaSwH0x4bRPdfXD+SLCuLzuL/DRSLFehsi8eeCeJ+YA6BzOZ+zHFJBPI3usNu7pxPv/GlAEP8TIIjga3NWBXFl4vJbaiFYUcTm9sN4Em2+f+lDEpzbzKJc+kehLm0rBJL19+zpDjcJ0WGc0m64eQFIsag2oq95B02O1/ldM+/vP7h/1kXIsitZGS99/RSBjvaob30RV9ex5hWPH7cjY8v9mo93YgDADdA3VtjfEOOV2Ei6mPBEyGJ/IjjHgRSg3HGW4hZX+miTitY0pnNK/9qWi8PaKSyKWNovBWaIUO4zx8C/9gJa2rXdyvXzTmP0Lz6GXcmKeFnrJ+dVcmH2MQhbe/zmOtaLy3xuss3nNpCcU/1k8QPgfjQFMUJ2GKxg43GSxBGrSETRK2Kl28xo/eOxRv+FkBWoj0uRWGKLVb84V8y7M4ZO55xWvIpI9daPxTaMtXfDQOZKbUmsdcyCyNclHTPnQsaCIIK/iS2IhVggRDzKa4U5sVPRqm2s4BIx0VtFpvRXj1VaRUaFJD3v3XalHYz3X/FNL87r5s19sjDsSnrxis+5rUKyScQxCFyYe/nXnx/m3YqbuY7quijHpH/Enh5zAO7DOkEMxCu/toNQiH3FrSYteuV8M9G18UwfSEGz49SP9LwniIV468bmpPh8w7wXfTR6diW9eJmxS4T5hvFm8Ssxtce2BasviCnOxLfgKwQRPIjGmyoaRGSoOCp9l0m7QhisIr22f1PsqFC2+hjEec9jynneNO+euHm6diW9eHXWL1DGPPpb5dIviNUwhRi24u4x16UniHR9MsEeBBE8iPbHbkTSxUQkiRmv5OzWyBdp+ZyiKIp4Li0EtWhSkbNkZ2+qiP5m4XliOy+u6HO1n8azBdEXKPNHmReNgda+ct6mHz27Em0cccxcv0DelTI70YZYowXGOnYFUcYitS0EkfkNwP1ofDA7JyJlkYQ58Ukfmujp1idxyB9tsYUhIG3mPisKXKUUcIEVsiw+jYY/lTlOxc5N865+tndtpl3JqnjZ61fbacyySDbHrbTi1hNETxXifF7wm+XeMuYA3Avzv+4BAMBWwJc7AABABl//BQAAnrA7xBfEAgCABz8hAAAAHm13GB4QRADA5sDPkAIAgKf9Q/XO/QaV25eLKFWlgQAAAABJRU5ErkJggg==" InformativeScreenshot="d818c7ea538192510a24bde5bb4d6c9c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(3) WhatsApp Business' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target DesignTimeRectangle="97, 100, 276, 28" FriendlyName="'wa-wordmark-refreshed'" FullSelectorArgument="&lt;webctrl aria-label='WhatsApp' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='WhatsApp' tag='SPAN' type='' class='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARgAAAAgCAYAAADJ0Gf4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAhISURBVHhe7Zz3b1RHEMfzV5Cf6B3TQgmhhggiMIQSjAnNiBLAIFooAYIpgWCKCQQQzfRgOphOMEUUI7oFiGKKBJgqeocfN/7u7ezNW7+LbcUX5aH5SCO/nRmfz6e3X+/OzvNnShAEIUqIwAiCEDVEYARBiBoiMIIgRA0RGEEQooYIjCAIUUMERhCEqGEFZt68eWrmzJna/Hj//r2Np6amGq+XR48e2ZytW7aoJ0+e2PGuXbtMVnC4fPmyff9/rl5tvIIgFBQrMB07dlSfFyumLevcOeMNc+jQIRuHvXnzxkTCpK1ZY+MpKSnqypUrdpzYv7/JKnpIHBcuWGA8RQPeM71/GARTEISCYwVm7ty5diIt8Jmov06a5JlsGRkZJhImMTHRxk+fPv2fCUyF8uX1z6hWtarx/HtevXqlShQvbt8/zO9zEQQhMlZgLly4YCdSQkKC8Yb5tnlzz2SblCs4LlVjYnSsTOnSehxkgVm5cqV973Xr1NFfGzVsaKKCIBQET5G3fLlyeiJVqljReEJgO0STjaxlixYmGuLmzZs21rNnT+27ygUmd3UDHj58qObMnq23NAcOHNC+SJw9c0b9MWeOXl3t2LFDPXjwwES8VKxQQf+M6tWqGU9ezuS+1upVq/TPTU9P993icfD74TUbN2qk0tLS7O9x/vx5kxEZ1KuWLF6s33dmZqb68OGDiURm/fr16vdZs/TK8MWLF8YrCMHGIzB9eve2E+natWvGq9TePXusv0rlyvb63bt3JkOpVbmTl/z46w+yr161vgEDBugaCY3JBg4cqJ4+farziaysLNWwQYM8ubCuXbrY/CaNG/vmwEgIICq0wnFt+PDhOsclOzvb5mBbhO0SjceMHm2ywiSNG2fj+KxqVK9ux7CyZcqozZs2mWylrymGz81dHcKSk5NNtiAEF4/AYDLSDY5rgk8gTDi6RuGX6Ne3r/Xfvn1b+7jA1Kld2167NnLkSJ0PDh8+7Im1bdNGtW/XTn1Zt671NW/WTOcOGTxYx3g+xjCsqC5evGj9tWvVUsOGDtUrGC5eWE25TJw40cax4gI9evTQY4iVC/98SpYoYa9dI9HmAvNP+du3b9f5ghBUPAIDYaCbGysOglYKDerX1xOOcqZMnmwylIox9RdMZIILDGzsmDEqJydHbwGSp061fqyKiLgOHayfn2Z9/PjRs2K5e/euiSi9pYMPKwfO+PHjbf69e/eMN7SFIcHy21bFVKmiY3Fxccaj1LZt2+xr7dy503hDcIFB/Wn//v3an3Pnjpo+fbqNUW2LCwxs2bJl2o+V2YYNG6z/i5o1tV8QgopHYABuatzcNWvU0GPc9HTD00qDJmdsy5Z6jL/MlDNixAjtA1xg3MkPqHYCg4CApUuX6lUG6hEumKCUj9cmIgnM0CFDbP7y5cuNN8T169fV8ePHtXH+2rvXfg/qIgTqKKVLldL+bl27Gm8ILjA4Mndp1aqVjT9+/NgjML1MvYqTlJRk4/nVqQTh/0wegflp2DB7c+OvPgqiNKY6As9BHQZ/gWnMG+q4wHTp3Nl4w3zXurWNP3/+3HjDnDp1Si1auFBPaD5JYQURGC4WsK/q1dMFaAjYiRMnTJYX2grhiPrt27fGG4Ifw/OeGC4wKEy78FXMwYMHPQKTumSJyQqTsW+fjfsJrSAEhTwCwwVly+bNetVCY6pH8AmCOkzvXr3s+OXLlzoHcIGhUyQOtiAUf/bsmfbdyd1WxMfHWz+3UiVL2uuCCAxA1zEvTHP7ukkTLWIEX63lZ7wnhgsMtkUuK1assHE0I/LPD1svFxS5Kc5XhIIQNPIIjLslou0QvhJuHaZypUr62j265gLDazqEn8CgzkM+nBjhmPrY0aN6azF40CAbK6jAECdPntSTGQ2D9H5hOJqnUymslsifn+H4muACg94fF/66a9eu9QgMxi5YXVH851GjjFcQgkcegQHfNG2qb25qnIPhBIZDwsNXB9OmTTPREIUVGN6Yl9C9u8kKAx/F/QTGLdiiFwXboXXr1hlPCGx9+CoJR8sAokG+I0eO2BoNtx86dbI5dBTOBYavbIj+/frZOPpxuMD82KePyQrDj/P9tlCCEBR8BWbChAn2BifjBU+AI2I3x61rFFZgzp09a8du5y+2XjihoTgXGFqRoG7CoRMprFJohUTw5rnMY8e0WNAY/UCR2MN6gqgnhgsMTtF4fQY1GYrhpA1wgYGhi5rAA6MQSor5bbkEISj4CgwKkXwC6Bs9J8dEQ0BweBwnLC6FFRisLPjzP5jAWIFgW+P20aDHheB9LWjnR/EYT0Knb91q/fDRagbH13QUXa5sWX2Cha0I5fo9Z8WhjmfqieECQ9aubVt9ysZ9VG9xBQYWGxurv4f7/B7HEIQg4Ssw6BPhN7pfPwYEh+d079bNRMIUVmAA/s2D+5AhDM8Zfd++vR3z0yo0y/Fc2KVLl3SMn+D4GV4HAgOhwRjCkx/oAKbvR08MF5jfpkyx19z4VocLzKhcYeNbUTLUmwQh6PgKDECTG9Ud/AqXgNcmcPrjAqGiOPpOXLDKoDgHRWQ8QtApPl7NmDFDb2EgAmiuo3z352GbgboJxGbxokWeI+YbN26oWSkp+l9SoMsXR9E4WqetDHLpdfnWKxIoOFP+rVu3PAID3/379/VzSKgZQXBQd+FwgUHN5vXr1/rxCvTEoBlx9+7dJlMQgk1EgREKzi9jx1rBgBjmx8aNG23+/PnzjVcQPj1EYIoAERhB8EcEpggQgREEf0RgigDUYagmg3/tkB+o/VA+6jWC8KkiAiMIQtQQgREEIWqIwAiCEDVEYARBiBJK/Q3PK6rUM0xvvAAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <Assign sap:VirtualizedContainerService.HintSize="1002,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[in_Destination]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[in_Destination.Replace("&amp;","&amp;amp;")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1002,184" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Destination Msg'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://web.whatsapp.com/" DesignTimeRectangle="380, 506, 0, 0" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Mamah Rayhan'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' isleaf='1' parentid='pane-side' tag='SPAN' /&gt;&quot;, in_Destination)]" FuzzyMatches="10000" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' isleaf='1' parentid='pane-side' tag='SPAN' type='' class='matched-text i0jNr' check:innerText='{0}' /&gt;&quot;, in_Destination)]" Guid="506cf578-4c39-4a55-b71e-db359c3f82cc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIAAAAAaCAYAAAB/w1TuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVGhD7Za9bhQxFIX3Dbeh4wm2IjRUSGy3dCtFQkskpG2Q9gFCsQX9diRtWhBMlYJFIEgijO3xz7F9/bNkJrPK+EhXSa489r3nfuPJhFWNWhWAkasCMHJVAEauCsDIVQEYuSoAI9ejBKA5n7PJfMZjzjaNSh6zLlaq3hlbXKjcA8kBYLdui9AxPSfca7ZsCmsmyy07No/vA4DvAQbpRxc6VgCo4Vpz42uGVl8AyFhfqpUdaiAA7vY/IwAs5+ot9w1s2GbZ5qfyp1j7WAFYsZ3Kubce5LvSAADcXO/Zl2dvcwB4154xYsUWZi0A4H8eZHhD8Jp13jj1djk5D7DgBkquEWdfsgWszV3jJAAGfC+f6RdrdQYLz8m84wmexcO7cRxvyDXQr8jD3ljbt3cf2M2L9zEAtmwDv2vLTEN8Y1xrLHUOwwAIomvamHL4ghwMjTRABFVnJFJvGQkA1oxm5/pFQOA5W586I+eJ6d+DA8Ps7wIfhPLp6uUZ+/N8HQegMUXp4dnDHUoRAF9ggGmCMtMxQBsPjSTOcN92P0efm7oFooCJSPUqFPRL+QQ5qn+di8DjKwQWAdA5BKf16erklP2enSUAgI1kM6YgsWkaAPINJJq1b6J3bUmlzsCGbOj9KCjoM0JFAUg8U9ZveCuY/klPUv3jkHXoXuk+fU8+v1qzX0+XKQDcv3d6A7kpXRxphI7AEBoA+3ZSZ9CD19EtAMT17D1X1K/fm94Ph1oMADV4HYcB8OPjJ7Z/8joNgC3M/tPXFpgpjsp1AQA8a9YR+3UKgJOja072y2Xq4ev0/1a2T65CABC4eK+ZGtS6v7d37OvJmwwAWIQM4pui12auti4AsE2khxOaIvT/ADjf40P7FcLnZWBdXIUApOdzGABCt9ffcwDgg7ghAQAeTEUHADgGE9EbAFzoQ1tjYb9SOCge4K9UIQDOLII4HAChLAAk6URxUg7p4iCimPsAILJogsgT+/UBgDtwtW9Jv1pQp3P9CxUCIGTr48HPCHulaygCoKo/xQYwtCoAD6Ky22cIVQD6FFztbfifleFVAehTDgDHN3yhCsDIVQEYtRj7B6QHNlgfnUIiAAAAAElFTkSuQmCC" InformativeScreenshot="129fcdd87f87ff5b067b5c614490492b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(6) WhatsApp' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_9" Shortcuts="[d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)]" Version="V3" />
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <Sequence DisplayName="Paste Message" sap:VirtualizedContainerService.HintSize="1002,1154" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:SetToClipboard DisplayName="Set To Clipboard - Clear" sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_3">
+                      <ui:SetToClipboard.Text>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:SetToClipboard.Text>
+                    </ui:SetToClipboard>
+                    <ui:SetToClipboard DisplayName="Set To Clipboard" sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_4" Text="[in_Message]" />
+                    <uix:NClick ClickType="Single" DisplayName="Click 'plus'" sap:VirtualizedContainerService.HintSize="438,157" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://web.whatsapp.com/" DesignTimeRectangle="1037, 926, 770, 62" DesignTimeScaleFactor="1.5" FriendlyName="'Type a message'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;footer&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div' parentid='main' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='main' tabindex='-1' tag='DIV' class='x9f619 x12lumcd x1qrby5j xeuugli xisnujt x6prxxf x1fcty0u x1fc57z9 xe7vic5 x1716072 xgde2yp x89wmna xbjl0o0 x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x178xt8z xm81vs4 xso031l xy80clv x1lq5wgf xgqcy7u x30kzoy x9jhf4c x1a2a7pz x13w7htt x78zum5 x96k8nx xdvlbce x1ye3gou xn6708d x1ok221b xu06os2 x1i64zmx x1emribx' aaname='' check:innerText='Type a message' /&gt;" Guid="3947f536-e8cb-4300-83cf-1c0cb39f899e" ImageBase64="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" InformativeScreenshot="486ceac5aa9617ffd9ddc4b615077baf.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(5) WhatsApp' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="968, 934, 45, 45" FriendlyName="'plus'" FullSelectorArgument="&lt;webctrl class='xzwifym' parentid='main' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='xzwifym' parentid='main' tag='SPAN' type='' aaname='' check:text='plus' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADEAAAAxCAYAAABznEEcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADlSURBVGhD7dahCgJBEMZx38s3MPsQ9quiTWyXBNMlo82gQcuWK2LQcMGXEOHyypSFhdnBgV0Zjy/8wsDA7L8cN3q9e//vEGEFIqxAhBWIsAIRViBCcrt3ftPsApq5vRyKRewPJz+eTAOaub0cECFBhBIiJIhQQoQEEUqqiEf39K69fqXeNlEEzdweh+5w91NUEct1HT2sFLrD3U9BRClFI44XF/1eS6rFKnoYzdweh+5w91NUERr4xCohQoIIJURIEKGECMkgIs6u9bNqHtDM7eVQLOKXEGEFIqxAhBWIsGIAEb3/AO03j1NefBeAAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts 'Type a message'" sap:VirtualizedContainerService.HintSize="438,199" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_7" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Shortcuts="[d(hk)][d(ctrl)]v[u(ctrl)][u(hk)]" Version="V3">
+                      <uix:NKeyboardShortcuts.Target>
+                        <uix:TargetAnchorable BrowserURL="https://web.whatsapp.com/" DesignTimeRectangle="522, 684, 728, 22" DesignTimeScaleFactor="1" FriendlyName="'P'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='selectable-text copyable-text' aaname='' /&gt;" Guid="b32c5150-cf7b-43fe-ad3f-0da98dffb8a0" ImageBase64="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" InformativeScreenshot="e0fef5008e2b0a63130cc4b9953528ce.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(6) WhatsApp' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="509, 674, 754, 44" FriendlyName="'Type a message'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;footer&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div' parentid='main' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='main' tabindex='-1' tag='DIV' class='_3Uu1_' aaname='' check:innerText='Type a message' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAvYAAAAwCAYAAAB6zz6gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASCSURBVHhe7dw9bttIGIDhPW2ukNLY3k0q94avEFc+gyqfwQFSBRsYQRJHXA6HQw05QzkOYv2Mnwf4gNCkqJGqlwztf77899gZY4wxxhhjznuEvTHGGGOMMQ3Math/ffzWff/xs9tutx0AAHA8oclDm4dGr7V7mGrYx6AfzwIAAJyE0Oih1WsNX4T909OvTtMDAMBpCq0emn3Z8bOwH+7Ux+MBAIATFZp9eed+CvvwvI7HbwAA4DyEds+fuZ/CPhQ/AABwPvK79lPY++s3AABwXkLDF2EPAACcH2EPAAANEPYAANAAYQ8AAA0Q9gAA0ABhDwAADRD2AADQAGEPAAANEPYAANCAVwj7T93Hy3+7d+/rc3U/HgYAAPw1rxD2uRj5Yh4AAF6XsAcAgAYcOOzj9sXdp3F7dH/dvbu87R6y/Zub7BGem814YBKPm/YPr90jnD8d20/x/rnh2Otuk79meP/5exYXK59vu4t0fD/z99h0V9m+/PM83H3Y/fz9h+7j53HH4nzPfQcXd5the7auvWsCAKAlBw77MWQXIR4iPkbnLlaXFwO7sI3beaQOFwFF+O5sbvpQH/8dYzcL6KUU9Ol8WRynNcUY33fOGPLx+OV6++0+wgfpIiJu9du30zke7q5Xzhcsv5PdBcJ0zN41AQDQmoOHfT0403YZrIM8gMO/l3foh3NmgbxXZU25ZWz3yguHfM1x//Ju+BDaw2v2vF/ts6yYvUdljcv32b8mAABac/iwH3+WonMem/N9kyzc053pcvKLhaV43vz4l4b9fE2Vi5Hs3NOM0T6tuYj4eBc97KutZ7igSOfqZ/adFefKv+vn1wQAQFuOEPa9EM/Vu9lx+9mwf0mcDq/Nz7mypuQPw75Yc0UK9frnC/vS+47Bn91dz9cwvxhK8s/1+2sCAKANxwn7IVz7iC0eoVkJ0vyRlepjKOvKCF5b0+jFYR/3l6G9ovjMO9P75J93NFtD9TuIFwPpc71oTQAAnL0jhf0Yqpf16J4/VjMP1umY2ev6Y9YidhHB6bGYvxn26Y777Jz9eeL2Ym3Z+ee/IJtd1Azny84/vCZfQ/xO8jUNIZ+vYe+aAABozdHCPsZqHvBBitv4pxuHZ8IXARvFsE379z9fv4veeK7Kn4XMZeGdPBv2wRjf00x33NPFSprs3IvX5O+RLkCG6S8M6mvYvfbqvvJdr64JAIDWvHLY7xGiswjN7K41L1S52AAA4M04UtiXj5JEwv5PDf8r4Y48AMCbdeCw3z2WUo93Yf97lo8i9bP2OwYAALwJBw57AADgNQh7AABogLAHAIAGCHsAAGiAsAcAgAYIewAAaICwBwCABhRhv91ux10AAMA5CA1fhP33Hz/H3QAAwDkIDV+E/dfHb33xj0cAAAAnLbR7aPgi7MOE4tf2AABw2kKz53frw8zCPszT0y9xDwAAJyq0emj2ZccXYR9muHOv7gEA4KSERl/eqU9TDfsw4XmdGPgKHwAAjik0eWjz/Jn65ayGvTHGGGOMMeZ8RtgbY4wxxhhz9vPY/Q8aiZsmSXjnTAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NKeyboardShortcuts.Target>
+                    </uix:NKeyboardShortcuts>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,407" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                      <TryCatch.Try>
+                        <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_10" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <uix:NClick ClickType="Single" DisplayName="Click 'Send Message'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://web.whatsapp.com/" DesignTimeRectangle="1319, 682, 24, 24" DesignTimeScaleFactor="1" FriendlyName="'wds-ic-send-filled'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;footer&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;span' idx='3' parentid='main' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='' parentid='main' tag='SPAN' aaname='' /&gt;" Guid="f161b07b-ed91-4beb-b216-968f79c478c7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVEhL7ZW/boJQHIX7FDTR2Mkuukl3JrtIRyJ9AbtII530GZjpC2gCEzwHM08AExOsQAinIZGkqb9b5RYYqif5pss9H7m5f+7uBQF9chO2zhULX1UVu+0Wj+MxOc4LU5hlGaqkaYrDfg9JksjvmsIUUvE8D2+rFYaDATnnEhoJ60RRBMMwMJ1MyLm/wSWsk+c5HMeBvFiQHRR/En6P7/vQNxs8jEZkXw1T+CSK0NZrWJaFIAiOtecTxzFM04Q4m5G9TOFPqh941zTYto0wDI/17JRlCUVRTno6ExZFgef5/KSn9SVNkgSfPEvaNNWm+dB1/k1zSapj4bouXmSZ7KDgEvZ28Du92nq/vNXlst/nqStuwtb570IBX2kcTUWptsVoAAAAAElFTkSuQmCC" InformativeScreenshot="d77fb9f35effb3f07d83585d79e826b3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(5) WhatsApp Business' /&gt;" SearchSteps="Selector, Image" Version="V1" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NClick>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                  </Sequence>
+                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="1002,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                  <uix:NCheckState DisplayName="Check App State 'Changes you'" sap:VirtualizedContainerService.HintSize="1002,998" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Timeout="10" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="498,781" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,347" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,268" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NClick ClickType="Single" DisplayName="Click 'push button Leave'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Version="V3">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable DesignTimeRectangle="289, 78, 68, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'push button Leave'" FullSelectorArgument="&lt;ctrl name='Leave site?' role='dialog' /&gt;&lt;ctrl name='Leave' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Leave site?' role='dialog' /&gt;&lt;ctrl name='Leave' role='push button' automationid='' /&gt;" Guid="86820080-9782-4996-9671-a51292db38af" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAAkCAYAAAAq23xmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJcSURBVGhD7Zq/b9pAFMf9n/An9E9g7J/AmDEjajuEbp0SpA5spaiKuoGUJQMDdGJgcDcYkJArfgtKiFIgbmIShPXte7aPmMTkQiMRWt+TPhK88935Prp3i0+DikdDCZLEUtCXYgVvD9P4cPgx1LADdiFiKejN0efADmGEXYhYChKNWqKG98WzUMJrFx5EPBDEDxaN3w86/++INT9JEMM2w4RYtxK0BiVIghIkQQmSoARJUIIkbFHQGHUab9L8GdC2uyhBEpQgCTsgyMB+9QYTdzrAspDOGk7bgTG/y2OByvcOtLJFv23oBa9/Zoo2ZdrVFrTkALnRwnmaYzL4hVjSP9fmvLigCC14Nr9BjqUke8iN6aHxFFFq2yucYy/DshpIjyhvXWE/cQZ9Dsy67rtEq7fcgHTSQGpgYzaaOlIiWZ8433yb8uKCvvLC7weJiFPb67KJurkggav5g67t/Tbc/rRTIt749+O5Jb0bgkwTMV/OIXuJITW1q328ov/xJpWOJ0g7MaltgVKexxTl5o4/NHqr4zyT7QvqXiCW7bkcN7wSsVF3RBiI5i+h10hi/orOHxuVcgORzDl0PnqEoEQfBZNkmLS1lrmWW55cricNKtcW4rVrnOb977A5Wxe0EqMx5TtINW8x81Kw5tDLfG50aHdRKXHQoksD3w4iYnSAcwyNvjc+cXyB0tjrQzExr5HKiPn/ji0K+jdRgiQoQRKUIAlKkAQlSIISJEEJkrCRoDB+OPz244kfDv02wwavfa0gdXnhjsDLC3zl493Rp8AOYWLt9RcVwaEEPRrAH+HfM7Rmua6iAAAAAElFTkSuQmCC" InformativeScreenshot="4bc2b45db6ee5db5eba05268c1cd5e1b.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Leave site?' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CommentOut>
+                        <uix:NClick ClickType="Single" DisplayName="Click 'push button Cancel'" sap:VirtualizedContainerService.HintSize="436,157" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable DesignTimeRectangle="365, 78, 68, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'push button Cancel'" FullSelectorArgument="&lt;ctrl name='Leave site?' role='dialog' /&gt;&lt;ctrl name='Cancel' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Leave site?' role='dialog' /&gt;&lt;ctrl name='Cancel' role='push button' automationid='' /&gt;" Guid="da09d1e6-0ea5-4520-9daa-ab2cfdf3f089" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAAkCAYAAAAq23xmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHKSURBVGhD7ZrBjcIwEEVTUqqgBjpIBTRAARRAATnnnnMKyDlXziBucPLqWfvBZD1BK4KUXeZLX5DxTLCfxgaJFME1KQf0RDdA1+s1HI/HcDqdPt6Xy+WbSgKIgfP5/CP50wwDGkV6AOS+W3JAhiUHZFhyQIYlB2RYckCGJQdkWHJAhiUHZFiaHVDbtmG9XoeiKKK322027x3e7/fxM3Njv7U0K6CmaeIEd7td6LouXpdlmc19hxcNaBiGOLm6rh/i4+t3etGA1D25MczWW61WMYeuIp+4FqVuS8cwgFVXVVWM9X0f31v3Uu0rlmYD9GxyLIou4z2LVq7qeD0cDmGz2UQgjAGVMfIZEyDGyU9zuPefB8Ti0wOc+LguvSZfUDDnGlZ9auKLBgQAJmedOWwFDm86QYskPgUIOCkgrFpe0zheNCDMVzoTZKIsgPbXAolrq9AZWsgUIG1FzhjqAEwc2NyDGNZPicUDwkwyPYzHk2csdwal9eNr7kNMsOlWbVV1Zq72FUuzA/ovlhyQYckBGZYckGHJARmWHJBhyQEZlhyQYckBGZYckGHpBog/7P3hhfsDHNINEI+/jJM/0TRK9vEXV14OaFIhfAF9RbtZZn+3VgAAAABJRU5ErkJggg==" InformativeScreenshot="e905eecc498ebe351e6ffff3416ad0a4.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Leave site?' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="436,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" Version="V3" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="17, 44, 416, 18" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Changes you'" FullSelectorArgument="&lt;ctrl name='Leave site?' role='dialog' /&gt;&lt;ctrl name='Changes you made may not be saved.' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Leave site?' role='dialog' /&gt;&lt;ctrl name='Changes you made may not be saved.' role='text' automationid='' check:fulltext='Changes you made may not be saved.' /&gt;" Guid="3901ac33-1978-44fc-b95e-ff0c50cd1313" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAaQAAAAWCAYAAACPOej/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAR+SURBVHhe7ZoBcuMwCEVzQx/LR/FRcpQewyuEkQAh7HTS1jv5b8Y7lSUhQNbHyeaxAwAAADcABQkAAMAtQEECAABwC1CQAAAA3AIUJAAAALcABQkAAMAtQEECAABwC14oSM99fSz79nU0wQ/ztW/LZ+f7uT725b9NAJ2XtfwLALhKUJDoID32R7vkUKEg/S4fUJCe6/5YthJpDAoSAJ+FLUgkEKUIrfoUfW37WkUBBel3QUFCQQLgs1AF6azgHP3PbV/k05MRE+rvn6y6kATzTMWjmreoeU8nxNqu9Y8Eq88bHR8Fzcao5/dPgoVShBcTW1IcaGyZu7UYeFyPyc7TsZo1C3kezuMlqo11K3OPsTUO8l+3OyYH0hcUijGXDN8nX8XOPCadC3vfvQQdjLbdHtTcS18i/pNxr8Qu/hm/ndPa3vqkZy3xCQAw0AvSydtqGcCFoY3hdjuTZX77uwqAiMf5PL0uH3iZy0Jq7fIhZ+GVjgk+Jmofc+p83ydtWkf3VT+cGAqH2IlYi2CZdrNV7JRiIWaqgEkMaR6Odk+EzYvCzpNCZNu9sJS9cDa5j/ZIx0vtWFxZhPvYISY9T+1fxe+Pw9u29pyPU1s+FuEbsbs1yD+zz2pD2Pc4ZwCAGFuQIoVrjAdbH0gLHXAZm81jIbDLqrmDyGR9EUpMqFXW5bVGn4ztlwuSEp6ztqbl/CQPgb8kgFHuvTCetTXaZs9VbUznDM9A25copsBusoeDbWVzjMPudSf2w3Mee2Cn9UXP08wfAMCMFz8hZaLIB7Z9ndHGZvNojj/I6h751Oz1S0ShihLdOxE1Hq8FIhaLNvYnC5KPiRfM81D9VXPMXIsX6kttZbPtZxNblZeAoWi03MU5o/XMGi8VpO6L95uvyR6p/Ok4zmPXMdDffWy7qv/R8xQ/YwCAOa//H5Lq7+LCh7Ufdi+mV+cRarwSxYwqLLNxJJDUZ2xFsSqfm6gKOh7HWQHSbS/ARviSPNS/r4mbz0XWjvp6ASCfaM187bwg+Zh4fLvn8+EYC1LfB+vrVXpO89iPmM1zkDwDym7DPwcAgFNUQToOaXCwZr+y64fY9dXDKO1s3rGmEiXrA80dRW0gFTYW1nW1PpDYDcWhta3PYV4ELzxJu9pRwVQfjnaeBzs2w6+Rta3gcwHRIk9j13U19zxD0aB4jzg4hiQ3FwqSnl/tyfhqa7InU3qRPIud+n3sZn1H9VXl2fju4wYAhJiCVCGRGL6SqB1pYTHzqABc+oTE8OHla/h1WT3MvV/8YbGT+/lhnwmJXtf3a/vRL94aXmzSNguf2CXBG0VstqadOyuQ1e9JASJsmwu+2KOirfeFfZ/EfUA+D3NULnUex33qMSkXG2y7vBDN5vtnNTJiYtS+nsRebY+xm2emXH1Jt7f6V3b+mQAAhIwF6c9RB/lNkCgasQHXcMUFAAB+ktsVpPoGGr7pfpf3F7hPgfbirVsBAAAJf16Q7Fc65XrjG7l8vQJRfRH5KgyJAwD8Ijf8yg4AAMAngoIEAADgBuz7P1Och3Tw9ompAAAAAElFTkSuQmCC" InformativeScreenshot="00f26b33f8f81421b2f1295c52099b8b.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Leave site?' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="952,408" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,329" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'edit Type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="f3de6df6-d995-4aa1-9e23-4e96d3e625a6" Text="[in_Message]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable DesignTimeRectangle="558, 683, 748, 40" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'edit Type'" FullSelectorArgument="&lt;uia automationid='TextBox' cls='RichEditBox' name='Type to group GRP App Dev' /&gt;" FuzzySelectorArgument="&lt;uia automationid='TextBox' cls='RichEditBox' name='Type to group GRP App Dev' role='edit' /&gt;" Guid="a012d245-e6aa-4be4-996f-da39a59e546d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAvAAAAAsCAYAAAADxYwHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANISURBVHhe7drBTeRAEAXQzQTyIAtiIAKuXLlyJT4iIIVZ/ZUKFYUNuwuW6OEdnsaurm63ffpj+dfl5eUJAABYgwAPAAALeQnwFxcXAADANyXAAwDAQgR4AABYiAAPAAALEeABAGAhAjwAACxEgAcAgIUI8AAAsBABHgAAFiLAAwDAQj4d4J+enjbrAADA1xPgAQBgIQI8AAAsRIAHAICFfDrAPz8/nx4fHzddXV1tzgEAAP7PpwN8fwP/8PBwur6+fjUOAAB8HQEeAAAWcliAz+czW5/RpJae29vb093d3Z/f+uTm/v7+VW/6aqzm9fEua/Xevc93skb2eXNz89Kb436tuY+6l95fY33/Udfdq/frRl8rcu0ayxrzT1G/z4z1uQAAnL/DAnxUQK/zhNUKxxVw+3jmZ06OKzTXehWwq3eqeZE1ZwgvtU71V6Du/Tnvwbqf177yO/eUnvfqOe77nH0Z6/uoZ5S+Ou+hPf19PQAAzt+hAT7HPXAmnFYQ3grZvX8rnKa/r79nXvejsR6SI9etPxZb+8x4hfLMrXBe9upbet/WnP5M5z7Tu3efAACcp0MDfK9VqK16gvEM6OmrQJqx9E/1B2BKffZu9fVrlPT2fc8AP9eNGs+8qvW97dXrOXTpnc+n9Gc655U5BwCA83V4gK+gPgP7PI8E3Xrb3UP0R9LXQ3mF597Tx/41wM997pnrzHrtq79lr7G9AN/XnHMBAPh5Dg/wCZypz89fEox7OI2c19vq1P82sCZg95Cd48ztPSXr/kuAr2Ddx0tqvZ51s/+9evRr57yvnWe0dR81nvP5OQ8AAD/L4QE+Ejpn8Kw326knpEaF5lIBt8zg3fW+Cr5bfdnfXCe9fd+Z3/eSsb5+rT3rmfdePfr91j77tWssKvD38T4/5jMDAOC8fWmA35PQmTDaaxXge423EtJ9NgMAQDk8wNfb6FkX4D+WPz6xNQYAwM/06QD/nvrMY+sNsgD/1vw8RngHAGA6NMADAABfS4AHAICFCPAAALAQAR4AABYiwAMAwEIEeAAAWIgADwAACxHgAQBgIQI8AAAsRIAHAICFCPAAALAQAR4AABYiwAMAwELeBHgAAOD7E+ABAGAZl6ff8QGjOfdU9OsAAAAASUVORK5CYII=" InformativeScreenshot="4a6b8eb1a91d1614006c22b8a853214e.png" ScopeSelectorArgument="&lt;wnd app='applicationframehost.exe' appid='5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App' title='WhatsApp' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                          </uix:NTypeInto.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NTypeInto>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="952,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Message sent&quot;]" />
+                  <ui:SetToClipboard DisplayName="Set To Clipboard - Clear" sap:VirtualizedContainerService.HintSize="952,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_5">
+                    <ui:SetToClipboard.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:SetToClipboard.Text>
+                  </ui:SetToClipboard>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="952,90" sap2010:WorkflowViewState.IdRef="WriteLine_1" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="400,201" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw Exception="[new SystemException(&quot;WhatsApp web not login&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="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" InformativeScreenshot="b752788f92b940967e99fd0973877008.jpg" Selector="&lt;html app='msedge.exe' title='(6) WhatsApp' /&gt;" Url="https://web.whatsapp.com/" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

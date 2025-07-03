@@ -1,0 +1,1 @@
+EXEC Wbms.dbo.sp_report_scrap_daily
