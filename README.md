@@ -1,40 +1,69 @@
-### Documentation is included in the Documentation folder ###
+# Local Scrap Report Notification - UiPath RPA
 
-[REFrameWork Documentation](https://github.com/UiPath/ReFrameWork/blob/master/Documentation/REFramework%20documentation.pdf)
+This RPA project automates the daily retrieval of Local Scrap dispatch data from a SQL database and sends a structured text summary via **WhatsApp Web UI automation**. Built with UiPath's REFramework, it ensures modularity, error handling, and daily reliability without requiring file generation or manual intervention.
 
-### REFrameWork Template ###
-**Robotic Enterprise Framework**
+---
 
-* Built on top of *Transactional Business Process* template
-* Uses *State Machine* layout for the phases of automation project
-* Offers high level logging, exception handling and recovery
-* Keeps external settings in *Config.xlsx* file and Orchestrator assets
-* Pulls credentials from Orchestrator assets and *Windows Credential Manager*
-* Gets transaction data from Orchestrator queue and updates back status
-* Takes screenshots in case of system exceptions
+## Project Description
 
+This automation runs **every day**, queries the latest dispatch data from a database, formats the summary inside UiPath, and opens WhatsApp Web to send the result as a chat message to a designated group or contact. No external Excel files or APIs are involved.
 
-### How It Works ###
+---
 
-1. **INITIALIZE PROCESS**
- + ./Framework/*InitiAllSettings* - Load configuration data from Config.xlsx file and from assets
- + ./Framework/*GetAppCredential* - Retrieve credentials from Orchestrator assets or local Windows Credential Manager
- + ./Framework/*InitiAllApplications* - Open and login to applications used throughout the process
+## Key Features
 
-2. **GET TRANSACTION DATA**
- + ./Framework/*GetTransactionData* - Fetches transactions from an Orchestrator queue defined by Config("OrchestratorQueueName") or any other configured data source
+- Daily execution (can be scheduled via Orchestrator)
+- Database data retrieval using `UiPath.Database.Activities`
+- In-memory data processing (no Excel used)
+- Message summary formatting directly in UiPath
+- WhatsApp Web automation using UI-based selectors
+- REFramework foundation for stability and error handling
+- Screenshots and logs for monitoring and diagnostics
 
-3. **PROCESS TRANSACTION**
- + *Process* - Process trasaction and invoke other workflows related to the process being automated 
- + ./Framework/*SetTransactionStatus* - Updates the status of the processed transaction (Orchestrator transactions by default): Success, Business Rule Exception or System Exception
+---
 
-4. **END PROCESS**
- + ./Framework/*CloseAllApplications* - Logs out and closes applications used throughout the process
+## Data Handling
 
+The bot connects to a SQL database, processes Local Scrap dispatch data, and compiles metrics such as:
 
-### For New Project ###
+- Number of vehicles
+- Number of transactions
+- Net weight actual vs. theoretical
+- Average process time (HH:mm)
 
-1. Check the Config.xlsx file and add/customize any required fields and values
-2. Implement InitiAllApplications.xaml and CloseAllApplicatoins.xaml workflows, linking them in the Config.xlsx fields
-3. Implement GetTransactionData.xaml and SetTransactionStatus.xaml according to the transaction type being used (Orchestrator queues by default)
-4. Implement Process.xaml workflow and invoke other workflows related to the process being automated
+The message is structured into a readable report and sent directly via WhatsApp Web.
+
+---
+
+## Project Structure
+
+| Folder/File                    | Description                                                   |
+|--------------------------------|---------------------------------------------------------------|
+| Main.xaml                      | Main entry point for the automation                          |
+| Modular/                       | Sub-workflows (e.g., WhatsAppSender, DBFetcher, Formatter)   |
+| Framework/                     | REFramework components                                        |
+| Data/Config.xlsx               | Configuration for DB connection, group name, etc.            |
+| .local/                        | Internal UiPath system folder                                 |
+| project.json                   | UiPath project metadata                                       |
+| README.md                      | Project documentation                                         |
+
+---
+
+## Process Workflow
+
+### 1. **Initialization**
+- Load configuration from `Config.xlsx` (e.g., DB credentials, WA group name)
+- Initialize system resources and variables
+
+### 2. **Database Query**
+- Use `UiPath.Database.Activities` to fetch Local Scrap data for the day
+
+### 3. **Data Processing**
+- Process metrics within UiPath:
+  - Vehicle and transaction counts
+  - Net weight comparison
+  - Time averages
+
+### 4. **Message Formatting**
+- Construct a report string like:
+
