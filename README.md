@@ -66,13 +66,13 @@ The message is structured into a readable report and sent directly via WhatsApp 
 
 ### 4. **Message Formatting**
 - Construct a report string like:
-- 
+```
 Truck Status Completed on [Date Time]
 Vehicles: X
 Transactions: Y
 Net Actual: Z tons
 Avg Time: HH:mm
-
+```
 ### 5. **WhatsApp Automation**
 - Open WhatsApp Web
 - Search for target group/contact
