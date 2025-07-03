@@ -66,4 +66,58 @@ The message is structured into a readable report and sent directly via WhatsApp 
 
 ### 4. **Message Formatting**
 - Construct a report string like:
+- 
+Truck Status Completed on [Date Time]
+Vehicles: X
+Transactions: Y
+Net Actual: Z tons
+Avg Time: HH:mm
 
+### 5. **WhatsApp Automation**
+- Open WhatsApp Web
+- Search for target group/contact
+- Paste and send message using UI automation (type/send)
+
+### 6. **Exception Handling**
+- Catch and log any errors
+- Take screenshots if WA Web fails to load or send
+- Log stored in Orchestrator or local file (optional)
+
+---
+
+## How to Run
+
+1. Open project in **UiPath Studio**.
+2. Set up `Config.xlsx` with:
+ - SQL connection string
+ - WhatsApp Web target group name or contact
+3. Run `Main.xaml` manually or schedule via **Orchestrator**.
+4. Ensure WhatsApp Web is accessible and not logged out.
+
+---
+
+## Exception Handling
+
+- Built-in REFramework: handles both system and business exceptions
+- Screenshots are captured on UI failures (e.g., WhatsApp Web not loaded)
+- Logs detailed messages for post-run analysis
+- Retries enabled for recoverable issues (e.g., temporary selector failure)
+
+---
+
+## Requirements
+
+- UiPath Studio (Enterprise)
+- Chrome/Edge browser with WhatsApp Web login
+- SQL Server database access
+- REFramework base template
+- Stable internet connection for WA Web
+
+---
+
+## Contact
+
+For questions, improvements, or collaboration:
+
+- **Email:** fadillah650@gmail.com  
+- **LinkedIn:** [Enrico Naufal Fadilla](https://linkedin.com/in/enrico-naufal-fadilla-54338a256)
